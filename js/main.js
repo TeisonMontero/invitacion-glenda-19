@@ -13,7 +13,7 @@ const CONFIG = {
   // 8 = Septiembre  ·  domingo 6 de septiembre de 2026, 5:00 PM
   fecha:     new Date(2026, 8, 6, 17, 0, 0),
   duracionH: 5,
-  direccion: '33836 S 7000 W, West Valley City, Utah 84128',
+  direccion: '3836 S 7000 W, West Valley City, Utah 84128',
   whatsapp:  '13857700508'   // +1 (385) 770-0508
 };
 
@@ -36,6 +36,15 @@ const CONFIG = {
     setTimeout(() => {
       document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('is-in'));
     }, 120);
+
+    // El botón flotante aparece cuando la portada ya se leyó
+    const fab = document.getElementById('fab');
+    if (fab) {
+      setTimeout(() => {
+        fab.dataset.listo = '1';
+        fab.classList.add('is-visible');
+      }, 2200);
+    }
 
     setTimeout(() => capa.remove(), 1000);
   });
@@ -294,5 +303,70 @@ const CONFIG = {
                 '?text=' + encodeURIComponent(construirMensaje());
 
     window.open(url, '_blank', 'noopener');
+  });
+})();
+
+/* ══════════════════════════════════════════
+   7 · BOTÓN FLOTANTE
+   ══════════════════════════════════════════ */
+(function flotante() {
+  const fab     = document.getElementById('fab');
+  const enviar  = document.getElementById('fabCompartir');
+  const toast   = document.getElementById('toast');
+  const seccion = document.getElementById('rsvp');
+  if (!fab || !enviar) return;
+
+  /* ── Aviso emergente ── */
+  let temporizador;
+  function aviso(texto) {
+    if (!toast) return;
+    clearTimeout(temporizador);
+    toast.textContent = texto;
+    toast.hidden = false;
+    requestAnimationFrame(() => toast.classList.add('is-visible'));
+    temporizador = setTimeout(() => {
+      toast.classList.remove('is-visible');
+      setTimeout(() => { toast.hidden = true; }, 400);
+    }, 2600);
+  }
+
+  /* ── Se esconde cuando el formulario ya está a la vista ── */
+  if (seccion && 'IntersectionObserver' in window) {
+    new IntersectionObserver((entradas) => {
+      if (fab.dataset.listo !== '1') return;
+      fab.classList.toggle('is-visible', !entradas[0].isIntersecting);
+    }, { threshold: 0.18 }).observe(seccion);
+  }
+
+  /* ── Enviar la invitación a alguien más ── */
+  enviar.addEventListener('click', async () => {
+    const datos = {
+      title: 'Mis ' + CONFIG.edad + ' · ' + CONFIG.nombre,
+      text:  'Te invito a celebrar mi cumpleaños conmigo 🌸',
+      url:   location.href
+    };
+
+    // Plan A: hoja para compartir del teléfono
+    if (navigator.share) {
+      try {
+        await navigator.share(datos);
+        return;
+      } catch (err) {
+        if (err && err.name === 'AbortError') return;   // la cerró a propósito
+      }
+    }
+
+    // Plan B: copiar el enlace
+    try {
+      await navigator.clipboard.writeText(datos.text + ' ' + datos.url);
+      aviso('Enlace copiado ✓');
+      return;
+    } catch (err) { /* sin permiso de portapapeles */ }
+
+    // Plan C: abrir WhatsApp para elegir contacto
+    window.open(
+      'https://wa.me/?text=' + encodeURIComponent(datos.text + ' ' + datos.url),
+      '_blank', 'noopener'
+    );
   });
 })();

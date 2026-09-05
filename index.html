@@ -52,11 +52,9 @@
     </div>
 
     <div class="hero__content">
-      <p class="hero__kicker reveal">Tengo el honor de invitarte a celebrar</p>
+      <h1 class="hero__nombre reveal">Glenda</h1>
 
-      <h1 class="hero__nombre reveal" data-delay="1">Glenda</h1>
-
-      <div class="orn reveal" data-delay="2" aria-hidden="true">
+      <div class="orn reveal" data-delay="1" aria-hidden="true">
         <span class="orn__linea"></span>
         <svg class="orn__rosa" viewBox="0 0 24 24" fill="none">
           <path d="M12 2.2l2.7 7.1 7.1 2.7-7.1 2.7-2.7 7.1-2.7-7.1L2.2 12l7.1-2.7L12 2.2z" stroke="currentColor" stroke-width=".8" stroke-linejoin="round"/>
@@ -64,6 +62,8 @@
         </svg>
         <span class="orn__linea"></span>
       </div>
+
+      <p class="hero__kicker reveal" data-delay="2">Te invito a celebrar<br>mi cumpleaños conmigo</p>
 
       <p class="hero__mis reveal" data-delay="3">Mis</p>
       <p class="hero__edad reveal" data-delay="3"><span>19</span></p>
@@ -136,9 +136,9 @@
             </svg>
           </div>
           <h3 class="tarjeta__titulo">Lugar</h3>
-          <p class="tarjeta__dato tarjeta__dato--dir">33836 S 7000 W</p>
+          <p class="tarjeta__dato tarjeta__dato--dir">3836 S 7000 W</p>
           <p class="tarjeta__sub">West Valley City, Utah 84128</p>
-          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=33836%20S%207000%20W%2C%20West%20Valley%20City%2C%20UT%2084128" target="_blank" rel="noopener">Cómo llegar</a>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=3836%20S%207000%20W%2C%20West%20Valley%20City%2C%20UT%2084128" target="_blank" rel="noopener">Cómo llegar</a>
         </article>
 
       </div>
@@ -279,6 +279,26 @@
   </footer>
 
 </main>
+
+<!-- ═══════════ BOTÓN FLOTANTE ═══════════ -->
+<div class="fab" id="fab">
+  <button class="fab__btn fab__btn--ghost" type="button" id="fabCompartir">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/>
+      <path d="M8.3 10.8l7.4-4.3M8.3 13.2l7.4 4.3"/>
+    </svg>
+    <span>Enviar</span>
+  </button>
+
+  <a class="fab__btn fab__btn--solid" href="#rsvp" id="fabConfirmar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4.5 12.5l5 5 10-11"/>
+    </svg>
+    <span>Confirmar</span>
+  </a>
+</div>
+
+<p class="toast" id="toast" role="status" hidden></p>
 
 <script src="js/main.js"></script>
 </body>

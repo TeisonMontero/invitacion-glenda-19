@@ -9,7 +9,7 @@ HTML, CSS y JavaScript puro — sin frameworks ni build.
 |---|---|
 | **Fecha** | Domingo 6 de septiembre de 2026 |
 | **Hora** | 5:00 PM |
-| **Lugar** | 33836 S 7000 W, West Valley City, Utah 84128 |
+| **Lugar** | 3836 S 7000 W, West Valley City, Utah 84128 |
 
 ## Qué incluye
 
@@ -18,6 +18,7 @@ HTML, CSS y JavaScript puro — sin frameworks ni build.
 - Tarjetas de fecha, hora y ubicación con enlace a Google Maps
 - Botón para agregar el evento al calendario (`.ics`)
 - Galería de imágenes
+- Botón flotante para confirmar o reenviar la invitación sin leer todo
 - **Confirmación de asistencia por WhatsApp** con mensaje automático
 
 ## Estructura
@@ -39,7 +40,7 @@ const CONFIG = {
   edad:      19,
   fecha:     new Date(2026, 8, 6, 17, 0, 0),  // mes 8 = septiembre
   duracionH: 5,
-  direccion: '33836 S 7000 W, West Valley City, Utah 84128',
+  direccion: '3836 S 7000 W, West Valley City, Utah 84128',
   whatsapp:  '13857700508'
 };
 ```

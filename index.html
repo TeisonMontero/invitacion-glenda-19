@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mis 19 · Glenda</title>
+<meta name="description" content="Estás invitado a celebrar los 19 años de Glenda. Confirma tu asistencia.">
+<meta name="theme-color" content="#f6e3e6">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mis 19 · Glenda">
+<meta property="og:description" content="Estás invitado a celebrar mis 19 años. Confirma tu asistencia.">
+<meta property="og:image" content="assets/hero-arco.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Great+Vibes&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="is-locked">
+
+<!-- ═══════════ SOBRE / INTRO ═══════════ -->
+<div class="sobre" id="sobre">
+  <div class="sobre__inner">
+    <div class="sobre__flor" aria-hidden="true">
+      <svg viewBox="0 0 100 100" fill="none">
+        <g stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+          <path d="M50 14v72M14 50h72M25 25l50 50M75 25L25 75"/>
+          <circle cx="50" cy="50" r="15"/>
+          <circle cx="50" cy="50" r="26"/>
+        </g>
+      </svg>
+    </div>
+    <p class="sobre__kicker">Tienes una invitación</p>
+    <h1 class="sobre__nombre">Glenda</h1>
+    <div class="sobre__sello" aria-hidden="true"><span>G</span></div>
+    <button class="sobre__btn" id="abrirSobre" type="button">
+      <span>Abrir invitación</span>
+    </button>
+  </div>
+</div>
+
+<canvas class="petalos" id="petalos" aria-hidden="true"></canvas>
+
+<main class="site" id="site">
+
+  <!-- ═══════════ PORTADA ═══════════ -->
+  <header class="hero" id="inicio">
+    <div class="hero__media" aria-hidden="true">
+      <img src="assets/hero-arco.jpg" alt="" class="hero__img" fetchpriority="high">
+      <div class="hero__scrim"></div>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__kicker reveal">Tengo el honor de invitarte a celebrar</p>
+
+      <h1 class="hero__nombre reveal" data-delay="1">Glenda</h1>
+
+      <div class="orn reveal" data-delay="2" aria-hidden="true">
+        <span class="orn__linea"></span>
+        <svg class="orn__rosa" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2.2l2.7 7.1 7.1 2.7-7.1 2.7-2.7 7.1-2.7-7.1L2.2 12l7.1-2.7L12 2.2z" stroke="currentColor" stroke-width=".8" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="1.4" fill="currentColor"/>
+        </svg>
+        <span class="orn__linea"></span>
+      </div>
+
+      <p class="hero__mis reveal" data-delay="3">Mis</p>
+      <p class="hero__edad reveal" data-delay="3"><span>19</span></p>
+      <p class="hero__anios reveal" data-delay="3">años</p>
+
+      <p class="hero__fecha reveal" data-delay="4" id="heroFecha">Domingo 6 de Septiembre<span>2026 · 5:00 PM</span></p>
+    </div>
+
+    <a class="hero__scroll" href="#cuenta" aria-label="Desliza para ver más">
+      <span class="hero__scroll-linea"></span>
+    </a>
+  </header>
+
+  <!-- ═══════════ CUENTA REGRESIVA ═══════════ -->
+  <section class="cuenta" id="cuenta">
+    <div class="wrap">
+      <p class="eyebrow reveal">Falta poco</p>
+      <h2 class="titulo reveal">Para la gran noche</h2>
+
+      <div class="cuenta__grid reveal" data-delay="2" id="countdown">
+        <div class="cuenta__caja"><span class="cuenta__num" data-cd="dias">00</span><span class="cuenta__lbl">Días</span></div>
+        <div class="cuenta__caja"><span class="cuenta__num" data-cd="horas">00</span><span class="cuenta__lbl">Horas</span></div>
+        <div class="cuenta__caja"><span class="cuenta__num" data-cd="min">00</span><span class="cuenta__lbl">Minutos</span></div>
+        <div class="cuenta__caja"><span class="cuenta__num" data-cd="seg">00</span><span class="cuenta__lbl">Segundos</span></div>
+      </div>
+
+      <p class="cuenta__msg" id="cuentaMsg" hidden>¡Hoy es el gran día! 🥂</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ DETALLES ═══════════ -->
+  <section class="detalles" id="detalles">
+    <div class="wrap">
+      <p class="eyebrow reveal">Los detalles</p>
+      <h2 class="titulo reveal">Cuándo y dónde</h2>
+
+      <div class="tarjetas">
+
+        <article class="tarjeta reveal" data-delay="1">
+          <div class="tarjeta__icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+              <rect x="3" y="5" width="18" height="16" rx="2.5"/>
+              <path d="M8 3v4M16 3v4M3 10h18"/>
+              <circle cx="12" cy="15.5" r="1.6" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <h3 class="tarjeta__titulo">Fecha</h3>
+          <p class="tarjeta__dato" id="datoFecha">Domingo 6 de Septiembre</p>
+          <p class="tarjeta__sub">2026</p>
+          <button class="btn btn--ghost" type="button" id="btnCalendario">Agregar al calendario</button>
+        </article>
+
+        <article class="tarjeta reveal" data-delay="2">
+          <div class="tarjeta__icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v5.4l3.4 2"/>
+            </svg>
+          </div>
+          <h3 class="tarjeta__titulo">Hora</h3>
+          <p class="tarjeta__dato" id="datoHora">5:00 PM</p>
+          <p class="tarjeta__sub">Recepción y brindis</p>
+        </article>
+
+        <article class="tarjeta reveal" data-delay="3">
+          <div class="tarjeta__icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+              <path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11z"/>
+              <circle cx="12" cy="10" r="2.6"/>
+            </svg>
+          </div>
+          <h3 class="tarjeta__titulo">Lugar</h3>
+          <p class="tarjeta__dato tarjeta__dato--dir">33836 S 7000 W</p>
+          <p class="tarjeta__sub">West Valley City, Utah 84128</p>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=33836%20S%207000%20W%2C%20West%20Valley%20City%2C%20UT%2084128" target="_blank" rel="noopener">Cómo llegar</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CITA / GALERÍA ═══════════ -->
+  <section class="cita" id="cita">
+    <div class="cita__bg" aria-hidden="true">
+      <img src="assets/mesa-elegante.jpg" alt="">
+    </div>
+    <div class="cita__contenido">
+      <p class="cita__texto reveal">“Diecinueve primaveras,<br>una noche para recordarlas todas.”</p>
+    </div>
+  </section>
+
+  <section class="galeria" id="galeria">
+    <div class="wrap">
+      <p class="eyebrow reveal">Un vistazo</p>
+      <h2 class="titulo reveal">La celebración</h2>
+
+      <div class="galeria__grid">
+        <figure class="galeria__item galeria__item--alto reveal" data-delay="1">
+          <img src="assets/corona-rosas.jpg" alt="Corona de rosas rosadas sobre seda" loading="lazy">
+        </figure>
+        <figure class="galeria__item reveal" data-delay="2">
+          <img src="assets/brindis.jpg" alt="Copas de cristal brindando con champán rosado" loading="lazy">
+        </figure>
+        <figure class="galeria__item reveal" data-delay="3">
+          <img src="assets/textura-seda.jpg" alt="Textura de seda rosa con destellos dorados" loading="lazy">
+        </figure>
+        <figure class="galeria__item galeria__item--ancho reveal" data-delay="4">
+          <img src="assets/mesa-elegante.jpg" alt="Mesa elegante con rosas, velas y copas" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TU PRESENCIA ═══════════ -->
+  <section class="regalo" id="regalo">
+    <div class="wrap wrap--angosto">
+      <p class="eyebrow reveal">Lo más importante</p>
+      <h2 class="titulo reveal">Tu presencia</h2>
+
+      <div class="regalo__icono reveal" data-delay="2" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.4 5.9a4.6 4.6 0 0 0-6.5 0L12 7.8l-1.9-1.9a4.6 4.6 0 1 0-6.5 6.5l1.9 1.9L12 20.8l6.5-6.5 1.9-1.9a4.6 4.6 0 0 0 0-6.5z"/>
+        </svg>
+      </div>
+
+      <p class="regalo__texto reveal" data-delay="3">
+        No hace falta que traigas nada.<br>
+        <strong>Tu asistencia es lo que importa</strong> y tu compañía
+        es el mejor regalo que puedo recibir.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════ RSVP ═══════════ -->
+  <section class="rsvp" id="rsvp">
+    <div class="wrap wrap--angosto">
+      <p class="eyebrow reveal">Confirmación</p>
+      <h2 class="titulo reveal">¿Nos acompañas?</h2>
+      <p class="rsvp__intro reveal" data-delay="2">
+        Tu respuesta se enviará por WhatsApp con un mensaje listo para mandar.
+      </p>
+
+      <form class="form reveal" data-delay="3" id="formRsvp" novalidate>
+
+        <div class="campo">
+          <label class="campo__lbl" for="nombre">Tu nombre</label>
+          <input class="campo__input" type="text" id="nombre" name="nombre" placeholder="Nombre y apellido" autocomplete="name" required>
+          <p class="campo__error" id="errNombre" hidden>Escribe tu nombre para continuar.</p>
+        </div>
+
+        <fieldset class="campo campo--opciones">
+          <legend class="campo__lbl">¿Asistirás?</legend>
+          <div class="opciones">
+            <label class="opcion">
+              <input type="radio" name="asistencia" value="si" checked>
+              <span class="opcion__caja">Sí, ahí estaré</span>
+            </label>
+            <label class="opcion">
+              <input type="radio" name="asistencia" value="no">
+              <span class="opcion__caja">No podré ir</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="campo" id="campoPersonas">
+          <label class="campo__lbl" for="personas">¿Cuántas personas asistirán?</label>
+          <div class="select">
+            <select class="campo__input" id="personas" name="personas">
+              <option value="1">1 persona</option>
+              <option value="2">2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4">4 personas</option>
+              <option value="5">5 personas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label class="campo__lbl" for="mensaje">Mensaje para Glenda <span class="campo__opt">(opcional)</span></label>
+          <textarea class="campo__input" id="mensaje" name="mensaje" rows="3" placeholder="Déjale unas palabras bonitas…"></textarea>
+        </div>
+
+        <div class="previa" id="previa" aria-live="polite">
+          <p class="previa__lbl">Vista previa del mensaje</p>
+          <p class="previa__texto" id="previaTexto"></p>
+        </div>
+
+        <button class="btn btn--wa" type="submit">
+          <svg class="btn__wa-icono" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.6-.8-2.7-1.4-3.8-3.2-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.5.7.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/>
+            <path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.3-2.9-1.3-4.4 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.6 8.3-8 8.3z"/>
+          </svg>
+          <span>Confirmar por WhatsApp</span>
+        </button>
+
+        <p class="form__nota">Se abrirá WhatsApp con el mensaje escrito. Solo dale enviar.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="pie">
+    <div class="orn" aria-hidden="true">
+      <span class="orn__linea"></span>
+      <svg class="orn__rosa" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2.2l2.7 7.1 7.1 2.7-7.1 2.7-2.7 7.1-2.7-7.1L2.2 12l7.1-2.7L12 2.2z" stroke="currentColor" stroke-width=".8" stroke-linejoin="round"/>
+        <circle cx="12" cy="12" r="1.4" fill="currentColor"/>
+      </svg>
+      <span class="orn__linea"></span>
+    </div>
+    <p class="pie__nombre">Glenda</p>
+    <p class="pie__texto">Te espero para celebrar juntos</p>
+  </footer>
+
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
